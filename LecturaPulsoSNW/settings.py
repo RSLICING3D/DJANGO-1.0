@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_km%m*s2xae1wcy+-_s!3epv#0%!-(&=^wdiw81hy*sc^x2r()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.20.108.25']
+ALLOWED_HOSTS = ['172.20.108.25', 'https://bedutel40.pythonanywhere.com/']
 
 # Configuracion de Correo
 
