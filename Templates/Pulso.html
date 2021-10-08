@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    	<!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
+
+
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+     	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" >
+     	<link rel="stylesheet" href="{% static 'css/aos.css' %}">
+     	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+     	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Botones.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Indicadores.css' %}">
+
+        <script type="text/javascript" src="{% static 'js/justgage.js' %}"></script>
+     	<script type="text/javascript" src="{% static 'js/raphael-2.1.4.min.js' %}"></script>
+
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{% static 'css/templatemo-digital-trend.css' %}">
+		<!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="http://172.20.108.25:8000/">
+              <i class="fa fa-line-chart"></i>
+              Dedutel
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="http://172.20.108.25:8000/" class="nav-link smoothScroll">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://172.20.108.25:8000/dashboard/" class="nav-link smoothScroll">Escritorio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tutorial</a>
+                    </li>
+                        <button onclick="dissconnected()" class="nav-link contact">Cerrar Sesion</button>
+                    <li class="nav-item">
+                        <a href="http://172.20.108.25:8000/Contacto/" class="nav-link contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+		<title>Escritorio</title>
+	</head>
+
+	<body>
+        <br>
+		<div style="text-align: center;"><h1>Dashboard</h1></div>
+        <br><br>
+    <section id="inicator_Velocimeter" style=text-align:center>
+        <table id="table2000" align="center" border="2" cellpadding="10" cellspacing="10" style="margin: 0 auto;">
+                <tr align="center">
+                    <th> <h3>Presion </h3> </th>
+                    <th> <h3> Voltaje </h3> </th>
+                    <th> <h3> Corriente </h3> </th>
+                </tr>
+                <tr align="center">
+                    <th> (Psi) </th>
+                    <th> (V) </th>
+                    <th> (A) </th>
+                </tr>
+                <tr align="center">
+                    <td align="center">
+                        <div id="gauge" class="200x160px"></div>
+                    </td>
+                    <td align="center">
+                        <div id="gauge1" class="200x160px"></div>
+                    </td>
+                    <td align="center">
+                        <div id="gauge2" class="200x160px"></div>
+                    </td>
+                </tr>
+        </table>
+    </section>
+    <section id="inicator_LED">
+        <table id="LEDSTABLE" align="center" style="margin: 0 auto;">
+            <tr align="center">
+                <th> <h3> Entrada Q00 </h3> </th>
+                <th> <h3> Entrada Q01 </h3> </th>
+                <th> <h3> Entrada Q02 </h3> </th>
+                <th> <h3> Entrada Q03 </h3> </th>
+                <th> <h3> Entrada Q04 </h3> </th>
+                <th> <h3> Entrada Q05 </h3> </th>
+                <th> <h3> Entrada Q06 </h3> </th>
+                <th> <h3> Entrada Q07 </h3> </th>
+                <th> <h3> Entrada Q08 </h3> </th>
+                <th> <h3> Entrada Q09 </h3> </th>
+            </tr>
+                <tr align="center">
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q00-image" width="150" height="150" title="Q0.0" alt="Q0.0"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q01-image" width="150" height="150" title="Q0.1" alt="Q0.1"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q02-image" width="150" height="150" title="Q0.2" alt="Q0.2"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q03-image" width="150" height="150" title="Q0.3" alt="Q0.3"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q04-image" width="150" height="150" title="Q0.4" alt="Q0.4"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q05-image" width="150" height="150" title="Q0.5" alt="Q0.5"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q06-image" width="150" height="150" title="Q0.6" alt="Q0.6"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q07-image" width="150" height="150" title="Q0.7" alt="Q0.7"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q08-image" width="150" height="150" title="Q0.8" alt="Q0.8"> </th>
+                <th> <img src="{% static 'media/Led-Off.png' %}" id="Q09-image" width="150" height="150" title="Q0.9" alt="Q0.9"> </th>
+            </tr>
+        </table>
+    </section>
+        <table id="GRPAHSTABLE" style="margin: 0 auto;">
+            <tr align="center">
+                <th> <img src="{% static 'media/GraphicPresion.png' %}" class="img-P" alt="PresionG"> </th>
+                <th> <img src="{% static 'media/GraphicVoltage.png' %}" class="img-V" alt="VoltajeG"> </th>
+                <th> <img src="{% static 'media/GraphicCorriente.png' %}" class="img-I" alt="CorrienteG"> </th>
+            </tr>
+        </table>
+    <section id="GraphicsD">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 mx-auto mt-5"></div>
+                <ol style="text-align: center">
+                    <select name="transporte">
+
+                        <option>Presion</option>
+
+                        <option>Voltaje</option>
+
+                        <option>Corriente</option>
+
+                    </select>
+                </ol>
+                    <canvas id="myChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </section>
+        <br> <br> <br>
+    <section id="PanelButton" style=text-align:center>
+        <table id="table1" align="left" border="2" cellpadding="10" cellspacing="10">
+            <tr align="center">
+                <th> Envia = '1' </th>
+                <th> Envia = '0' </th>
+                <th> Entrada    </th>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar/">-Apagar-</a> </td>
+                <td align="center"> <h3> I0.0 </h3> </td>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender1/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar1/">-Apagar-</a> </td>
+                <td align="center"> <h3> I0.1 </h3> </td>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender2/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar2/">-Apagar-</a> </td>
+                <td align="center"> <h3> I0.2 </h3> </td>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender3/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar3/">-Apagar-</a> </td>
+                <td align="center"> <h3> I0.3 </h3> </td>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender4/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar4/">-Apagar-</a> </td>
+                <td align="center"> <h3> I0.4 </h3> </td>
+            </tr>
+        </table>
+        <table id="table2" align="left" border="2" cellpadding="10" cellspacing="10">
+            <tr align="center">
+                <th> Envia = '1' </th>
+                <th> Envia = '0' </th>
+                <th> Entrada    </th>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender5/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar5/">-Apagar-</a> </td>
+                <td align="center"> <h3> I0.5 </h3> </td>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender6/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar6/">-Apagar-</a> </td>
+                <td align="center"> <h3> I0.6 </h3> </td>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender7/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar7/">-Apagar-</a> </td>
+                <td align="center"> <h3> I0.7 </h3> </td>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender00/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar00/">-Apagar-</a> </td>
+                <td align="center"> <h3> I1.0 </h3> </td>
+            </tr>
+            <tr>
+                <td> <a class="btn btn-success" href="http://172.20.108.25:8000/dashboard/Encender01/">Encender</a> </td>
+                <td> <a class="btn btn-danger" href="http://172.20.108.25:8000/dashboard/Apagar01/">-Apagar-</a> </td>
+                <td align="center"> <h3> I1.1 </h3> </td>
+            </tr>
+        </table>
+    </section>
+    <section id="EnvTxtInt" style=text-align:center>
+        <table id="table4" align="left" border="2" cellpadding="10" cellspacing="0">
+            <tr>
+                <td>Envio de Mensaje :</td>
+                <form action="{% url 'Message' %}" method="POST">
+                <td colspan="2"><label>
+                    <input type="text" size="20" placeholder="Escribe un Mensaje :V" name="tipo_de_dato" value="">
+                </label></td>
+                <td>
+                    {% csrf_token %}
+                    <button type="submit" value="OK" class="btn btn-warning">Enviar</button>
+                </td></form>
+            </tr>
+            <tr>
+                <td>Envio de Variable int :</td>
+                <form action="{% url 'MessageInt0' %}" method="POST">
+                <td colspan="1"><label>
+                    <input type="number" size="20" placeholder="Vacio numeral" name="tipo_de_dato_int0" value="">
+                </label></td>
+                    <td align="center"> <h3> M0.0 </h3> </td>
+                <td>
+                    {% csrf_token %}
+                    <button type="submit" value="OK" class="btn btn-warning">Enviar</button>
+                </td></form>
+            </tr>
+            <tr>
+                <td>Envio de Variable int :</td>
+                <form action="{% url 'MessageInt1' %}" method="POST">
+                <td colspan="1"><label>
+                    <input type="number" size="20" placeholder="1 - 2 - 3" name="tipo_de_dato_int1" value="">
+                </label></td>
+                    <td align="center"> <h3> M0.1 </h3> </td>
+                <td>
+                    {% csrf_token %}
+                    <button type="submit" value="OK" class="btn btn-warning">Enviar</button>
+                </td></form>
+            </tr>
+            <tr>
+                <td>Envio de Variable int :</td>
+                <form action="{% url 'MessageInt2' %}" method="POST">
+                <td colspan="1"><label>
+                    <input type="number" size="20" placeholder="4 - 5 - 6" name="tipo_de_dato_int2" value="">
+                </label></td>
+                    <td align="center"> <h3> M0.2 </h3> </td>
+                <td>
+                    {% csrf_token %}
+                    <button type="submit" value="OK" class="btn btn-warning">Enviar</button>
+                </td></form>
+            </tr>
+            <tr>
+                <td>Envio de Variable int :</td>
+                <form action="{% url 'MessageInt3' %}" method="POST">
+                <td colspan="1"><label>
+                    <input type="number" size="20" placeholder="7 - 8 - 9" name="tipo_de_dato_int3" value="">
+                </label></td>
+                    <td align="center"> <h3> M0.3 </h3> </td>
+                <td>
+                    {% csrf_token %}
+                    <button type="submit" value="OK" class="btn btn-warning">Enviar</button>
+                </td></form>
+            </tr>
+            <tr>
+                <td>Envio de Variable int :</td>
+                <form action="{% url 'MessageInt4' %}" method="POST">
+                <td colspan="1"><label>
+                    <input type="number" size="20" placeholder="10 - 11 - 12" name="tipo_de_dato_int4" value="">
+                </label></td>
+                    <td align="center"> <h3> M0.4 </h3> </td>
+                <td>
+                    {% csrf_token %}
+                    <button type="submit" value="OK" class="btn btn-warning">Enviar</button>
+                </td></form>
+            </tr>
+        </table>
+    </section>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<footer class="site-footer">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
+            <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">Si lo puedes imaginar <strong>Lo puedes crear</strong></h1>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="my-4">Contact Info</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-phone mr-2 footer-icon"></i>
+              +55 5359 5261
+            </p>
+
+            <p>
+              <a href="#">
+                <i class="fa fa-envelope mr-2 footer-icon"></i>
+                ventas@dedutel.com
+              </a>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+            <h4 class="my-4">Our Studio</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-home mr-2 footer-icon"></i>
+              Calle Alce Blanco 19, Alce Blanco, 53370 Naucalpan de Juárez, Méx.
+            </p>
+          </div>
+
+          <div class="col-lg-4 mx-lg-auto text-center col-md-8 col-12" data-aos="fade-up" data-aos-delay="400">
+            <p class="copyright-text">Copyright &copy; 2021 Dedutel
+            <br>
+            <a rel="nofollow noopener" href="#">Design: Ing</a></p>
+          </div>
+
+          <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
+
+            <ul class="footer-link">
+              <li><a href="#">Stories</a></li>
+              <li><a href="#">Work with us</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+            <ul class="social-icon">
+              <li><a href="#" class="fa fa-instagram"></a></li>
+              <li><a href="#" class="fa fa-twitter"></a></li>
+              <li><a href="#" class="fa fa-dribbble"></a></li>
+              <li><a href="#" class="fa fa-behance"></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+        <!-- WebSocket -->
+		<script type="text/javascript">
+            var ctx = document.getElementById('myChart').getContext('2d');
+
+            var graphData = {
+                type: 'line',
+                options: {
+                    scale:{
+                        suggestedMin: 0,
+                        suggestedMax: 130
+                    }
+                },
+                data: {
+                    labels: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',],
+                    datasets: [{
+                        label: 'GRAFICA TOTALMENTE EN VIVO -PRESION-',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: [
+                            'rgba(30, 169, 244, 0.2)',
+                        ],
+                        borderWidth: 5
+                    }]
+                },
+            }
+
+            var myChart = new Chart(ctx, graphData);
+
+            var socket;
+
+            var z;
+            var k = new JustGage({
+                id: "gauge",
+                value: z,
+                min: 0,
+                max: 140,
+                title: " "
+            });
+
+            var y;
+            var l = new JustGage({
+                id: "gauge1",
+                value: y,
+                min: 0,
+                max: 240,
+                title: " "
+            });
+
+            var x;
+            var m = new JustGage({
+                id: "gauge2",
+                value: x,
+                min: 0,
+                max: 140,
+                title: " "
+            });
+
+            socket = new WebSocket ('ws://172.20.108.25:8000/dashboard');
+
+
+        	socket.onmessage = function(event){
+		        var data = JSON.parse(event.data);
+	            console.log(data);
+
+	            var a = data.OutputS[3]
+                var b = data.OutputS[4]
+                var c = data.OutputS[5]
+                var d = data.OutputS[6]
+                var e = data.OutputS[7]
+                var f = data.OutputS[8]
+                var g = data.OutputS[9]
+                var h = data.OutputS[10]
+                var i = data.OutputS[11]
+                var j = data.OutputS[12]
+
+                z = data.OutputS[0];
+                var temp = z
+                k.refresh(temp)
+                y = data.OutputS[1];
+                var temp1 = y
+                l.refresh(temp1)
+                x = data.OutputS[2];
+                var temp2 = x
+                m.refresh(temp2)
+
+                if (a == "1") {
+                    setInterval(LedOn0());
+                } else if(a == "0"){
+                    setInterval(LedOff0());
+                }
+
+                if (b == "1") {
+                    setInterval(LedOn1());
+                } else if(b == "0"){
+                    setInterval(LedOff1());
+                }
+
+                if (c == "1") {
+                    setInterval(LedOn2());
+                } else if(c == "0"){
+                    setInterval(LedOff2());
+                }
+
+                if (d == "1") {
+                    setInterval(LedOn3());
+                } else if(d == "0"){
+                    setInterval(LedOff3());
+                }
+
+                if (e == "1") {
+                    setInterval(LedOn4());
+                } else if(e == "0"){
+                    setInterval(LedOff4());
+                }
+
+                if (f == "1") {
+                    setInterval(LedOn5());
+                } else if(f == "0"){
+                    setInterval(LedOff5());
+                }
+
+                if (g == "1") {
+                    setInterval(LedOn6());
+                } else if(g == "0"){
+                    setInterval(LedOff6());
+                }
+
+                if (h == "1") {
+                    setInterval(LedOn7());
+                } else if(h == "0"){
+                    setInterval(LedOff7());
+                }
+
+                if (i == "1") {
+                    setInterval(LedOn8());
+                } else if(i == "0"){
+                    setInterval(LedOff8());
+                }
+
+                if (j == "1") {
+                    setInterval(LedOn9());
+                } else if(j == "0"){
+                    setInterval(LedOff9());
+                }
+
+	            var newGraphData = graphData.data.datasets[0].data;
+                newGraphData.shift();
+                newGraphData.push(data.OutputS[13]);
+
+                var newGraphData2 = graphData.data.labels;
+                newGraphData2.shift();
+                newGraphData2.push(data.OutputS[14]);
+
+                graphData.data.datasets[0].data = newGraphData;
+                myChart.update()
+            }
+            function dissconnected(){
+                socket.send({action: 'action'});
+                window.location.href = "http://172.20.108.25:8000/logout/";
+            }
+    	</script>
+        <script type="text/javascript">
+
+            window.onload=function(){
+                var pos=window.name || 0;
+                window.scrollTo(0,pos);
+            }
+            window.onunload=function(){
+                window.name=self.pageYOffset || (document.documentElement.scrollTop+document.body.scrollTop);
+            }
+
+            function LedOff0(){
+                var image0 = document.getElementById("Q00-image")
+                image0.src = "{% static 'media/Led-Off.png' %}"
+
+            }
+            function LedOn0(){
+                var image0 = document.getElementById("Q00-image")
+                image0.src = "{% static 'media/Led-ON.png' %}"
+
+            }
+
+            function LedOff1(){
+                var image1 = document.getElementById("Q01-image")
+                image1.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn1(){
+                var image1 = document.getElementById("Q01-image")
+                image1.src = "{% static 'media/Led-ON.png' %}"
+            }
+
+            function LedOff2(){
+                var image2 = document.getElementById("Q02-image")
+                image2.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn2(){
+                var image2 = document.getElementById("Q02-image")
+                image2.src = "{% static 'media/Led-ON.png' %}"
+            }
+
+            function LedOff3(){
+                var image3 = document.getElementById("Q03-image")
+                image3.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn3(){
+                var image3 = document.getElementById("Q03-image")
+                image3.src = "{% static 'media/Led-ON.png' %}"
+            }
+
+            function LedOff4(){
+                var image4 = document.getElementById("Q04-image")
+                image4.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn4(){
+                var image4 = document.getElementById("Q04-image")
+                image4.src = "{% static 'media/Led-ON.png' %}"
+            }
+
+            function LedOff5(){
+                var image5 = document.getElementById("Q05-image")
+                image5.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn5(){
+                var image5 = document.getElementById("Q05-image")
+                image5.src = "{% static 'media/Led-ON.png' %}"
+            }
+
+            function LedOff6(){
+                var image6 = document.getElementById("Q06-image")
+                image6.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn6(){
+                var image6 = document.getElementById("Q06-image")
+                image6.src = "{% static 'media/Led-ON.png' %}"
+            }
+
+            function LedOff7(){
+                var image7 = document.getElementById("Q07-image")
+                image7.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn7(){
+                var image7 = document.getElementById("Q07-image")
+                image7.src = "{% static 'media/Led-ON.png' %}"
+            }
+
+            function LedOff8(){
+                var image8 = document.getElementById("Q08-image")
+                image8.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn8(){
+                var image8 = document.getElementById("Q08-image")
+                image8.src = "{% static 'media/Led-ON.png' %}"
+            }
+
+            function LedOff9(){
+                var image9 = document.getElementById("Q09-image")
+                image9.src = "{% static 'media/Led-Off.png' %}"
+            }
+            function LedOn9() {
+                var image9 = document.getElementById("Q09-image")
+                image9.src = "{% static 'media/Led-ON.png' %}"
+            }
+        </script>
+		<!-- SCRIPTS -->
+		<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+     	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+     	<script type="text/javascript" src="{% static 'js/aos.js' %}"></script>
+     	<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+     	<script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+     	<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+        <!-- Velocimeter -->
+        <script type="text/javascript">
+            const number = document.querySelectorAll(".wrapper input[type=number]");
+            number.forEach((el)=>{el.addEventListener("change", moverNumber)});
+            function moverNumber() {
+                const max=parseFloat(this.max);
+                const pos=parseFloat(this.value);
+                let perCent=(pos*100)/max;
+                perCent=perCent<=100?perCent:100;
+                const result=((perCent*180)/100)+90;
+                this.previousElementSibling.querySelector(".line").style.transform="rotate("+result+"deg)";
+            }
+        </script>
+
+	</body>
+</html>
