@@ -1,0 +1,34 @@
+table {
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+  margin: 6em;
+  text-align: center;
+}
+
+h1 {
+  color: #5d58d7;
+  font-weight: normal;
+  font-size: 35px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+/* ---------------------CSS--------------------------*/
+
+.background {
+    width:400px;
+    height:60px;
+    position: relative;
+    background: #000;
+    color: white;
+}
+
+#invisibleOne {
+    position:absolute;
+    top:0px;
+    left:0;
+    background: transparent;
+    border: none !important;
+    width:170px;
+    font-size:0;
+}
